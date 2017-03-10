@@ -70,8 +70,10 @@
         [self.MiddleLayer addAnimation:self.ToViewAnimationMiddle forKey:@"ToViewMiddle"];
         [self.UpLayer addAnimation:self.ToViewAnimationUp forKey:@"ToViewUp"];
         [self.DownLayer addAnimation:self.ToViewAnimationDown forKey:@"ToViewDown"];
-        
-        [ToView addSubview:self.AnimationView];
+             
+        [ToView.layer addSublayer:self.MiddleLayer];
+        [ToView.layer addSublayer:self.UpLayer];
+        [ToView.layer addSublayer:self.DownLayer];
     }else{
         //Dismiss
         
@@ -79,7 +81,9 @@
         [self.UpLayer addAnimation:self.FromViewAnimationUp forKey:@"FromViewUp"];
         [self.DownLayer addAnimation:self.FromViewAnimationDown forKey:@"FromViewDown"];
         
-        [FromView addSubview:self.AnimationView];
+        [FromView.layer addSublayer:self.MiddleLayer];
+        [FromView.layer addSublayer:self.UpLayer];
+        [FromView.layer addSublayer:self.DownLayer];
     }
 }
 
